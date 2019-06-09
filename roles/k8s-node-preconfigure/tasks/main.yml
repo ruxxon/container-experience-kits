@@ -1,4 +1,11 @@
 ---
+# install the 'Development tools' package group
+- name: install the 'Development tools'
+  yum:
+    name: "@Development tools"
+    state: present
+  when: ansible_os_family == "RedHat"
+  
 # update i40e and i40evf drivers
 - include: "i40e-drivers-update.yml"
   when: force_nic_drivers_update | default(false) | bool
