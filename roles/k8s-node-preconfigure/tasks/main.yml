@@ -1,4 +1,10 @@
 ---
+# add Development tools
+- name: install the 'Development tools' package group
+  yum:
+    name: "@Development tools"
+    state: present
+
 # update i40e and i40evf drivers
 - include: "i40e-drivers-update.yml"
   when: force_nic_drivers_update | default(false) | bool
